@@ -1,0 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 62.5%;
+  line-height: 1.5;
+
+  @apply text-white ;
+  scroll-behavior: smooth;
+}
+@layer components {
+  // search bar and navigation classes
+  .search-bar {
+    &:hover > input {
+      @apply sm:w-[10rem] md:w-[12rem] w-[14rem];
+    }
+  }
+  .icon {
+    @apply w-[1.8rem] h-[1.8rem] cursor-pointer;
+  }
+  .nav-link {
+    &--active {
+      @apply text-fuchsia-600 text-2xl uppercase;
+      &:hover + .nested-links {
+        @apply opacity-100 pointer-events-auto;
+      }
+    }
+    &--passive {
+      @apply text-white text-xl uppercase;
+      &:hover + .nested-links {
+        @apply opacity-100 pointer-events-auto;
+      }
+    }
+  }
+  .nested-links {
+    &:hover {
+      @apply pointer-events-auto opacity-100;
+    }
+  }
+  .hamb-span {
+    @apply h-[0.15rem] w-[2rem] last:mb-0 mb-[0.5rem] bg-white inline-block;
+  }
+  // buttons
+  .purple {
+    @apply bg-main
+  }
+  .emerald {
+    @apply bg-emerald-500
+  }
+  .transparent {
+    @apply bg-transparent border-2 border-gray-300  transition-all duration-700 hover:bg-emerald-400
+  }
+  .button {
+    @apply text-xl text-white py-[0.5rem] px-[1rem] rounded-2xl shadow-xl hover:scale-110 duration-500 cursor-pointer
+  }
+}
